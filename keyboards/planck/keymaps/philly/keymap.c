@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|Debug |      |      |      |      |      |      |      |      |  Del |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|Qwerty|      |      |Plover|      |
+ * |      |      |MUSmod|Aud on|Audoff|AGnorm|AGswap|Qwerty|      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|TermOn|TermOf|      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -156,17 +156,23 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
   } else {
     if (IS_LAYER_ON(_RAISE) && clockwise){
-      tap_code(KC_MS_WH_DOWN);
+      tap_code(KC_PGDN);
+      dprint("CASE 1\n");
     } else if (IS_LAYER_ON(_RAISE) && !clockwise) {
-      tap_code(KC_MS_WH_UP);
+      tap_code(KC_PGUP);
+      dprint("CASE 2\n");
     } else if (IS_LAYER_ON(_LOWER) && clockwise){
       tap_code(KC_BRID);
+      dprint("CASE 3\n");
     } else if (IS_LAYER_ON(_LOWER) && !clockwise){
       tap_code(KC_BRIU);
+      dprint("CASE 4\n");
     } else if (IS_LAYER_ON(_QWERTY) && clockwise) {
       tap_code(KC_VOLD);
+      dprint("CASE 5\n");
     } else if (IS_LAYER_ON(_QWERTY) && !clockwise) {
       tap_code(KC_VOLU);
+      dprint("CASE 6\n");
     }
   }
     return true;
