@@ -175,7 +175,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
       dprint("CASE 6\n");
     }
   }
-    return true;
+    return false;
 }
 
 void matrix_scan_user(void) {
