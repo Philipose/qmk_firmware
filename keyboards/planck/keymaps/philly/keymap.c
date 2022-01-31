@@ -164,9 +164,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     } else if (IS_LAYER_ON(_LOWER) && !clockwise){
       tap_code(KC_BRIU);
     } else if (IS_LAYER_ON(_QWERTY) && clockwise) {
-      tap_code(KC_VOLD);
-    } else if (IS_LAYER_ON(_QWERTY) && !clockwise) {
       tap_code(KC_VOLU);
+    } else if (IS_LAYER_ON(_QWERTY) && !clockwise) {
+      tap_code(KC_VOLD);
     }
   }
     return false;
